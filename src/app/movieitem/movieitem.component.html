@@ -1,0 +1,8 @@
+<section class="item position-relative mb-5">
+    <a [routerLink]="['/moviedetails', item.id, item.media_type]">
+        <img *ngIf="item.poster_path" [src]="'https://image.tmdb.org/t/p/w500/'+item.poster_path" alt="movie" class="w-100 rounded-5">
+        <img *ngIf="item.profile_path" [src]="'https://image.tmdb.org/t/p/w500/'+item.profile_path" alt="movie" class="w-100 rounded-5">
+        <h3 class="h6 my-2 text-center">{{item.title}} {{item.name}}</h3>
+        <section *ngIf="item.vote_average" class="bg-info position-absolute top-0 end-0 text-white p-1">{{item.vote_average.toFixed(1)}}</section>
+    </a>
+</section>

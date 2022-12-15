@@ -1,0 +1,107 @@
+<section class="container bg-dark rounded-5 mt-5 p-5">
+
+
+
+  <section *ngIf="Response" class="alert alert-danger m-3">
+    <p>{{Response}}</p>
+  </section>
+
+  <form (ngSubmit)="SumbitRegisterForm(RegisterForm)" [formGroup]="RegisterForm">
+    <section class="m-3">
+      <label for="FirstName" class="text-white">FirstName : </label>
+    <input formControlName="first_name" type="text" name="FirstName" id="FirstName" class="form-control">
+    </section>
+    <section *ngIf="RegisterForm.get('first_name')?.errors && RegisterForm.get('first_name')?.touched" class="alert alert-danger m-3">
+      <p *ngIf="RegisterForm.get('first_name')?.getError('required')">FirstName is required</p>
+      <p *ngIf="RegisterForm.get('first_name')?.getError('minlength')">
+        The actual length is : {{RegisterForm.get('first_name')?.getError('minlength')['actualLength']}} <br/>
+        The required length is : {{RegisterForm.get('first_name')?.getError('minlength')['requiredLength']}}
+      </p>
+      <p *ngIf="RegisterForm.get('first_name')?.getError('maxlength')">
+        The actual length is : {{RegisterForm.get('first_name')?.getError('maxlength')['actualLength']}} <br/>
+        The required length is : {{RegisterForm.get('first_name')?.getError('maxlength')['requiredLength']}}
+      </p>
+    </section>
+
+
+
+
+
+  <section class="m-3">
+    <label for="LastName" class="text-white">lastName : </label>
+    <input formControlName="last_name" type="text" name="LastName" id="LastName" class="form-control">
+  </section>
+  <section *ngIf="RegisterForm.get('last_name')?.errors && RegisterForm.get('last_name')?.touched" class="alert alert-danger m-3">
+    <p *ngIf="RegisterForm.get('last_name')?.getError('required')">LastName is required</p>
+    <p *ngIf="RegisterForm.get('last_name')?.getError('minlength')">
+      The actual length is : {{RegisterForm.get('last_name')?.getError('minlength')['actualLength']}} <br/>
+      The required length is : {{RegisterForm.get('last_name')?.getError('minlength')['requiredLength']}}
+    </p>
+    <p *ngIf="RegisterForm.get('last_name')?.getError('maxlength')">
+      The actual length is : {{RegisterForm.get('last_name')?.getError('maxlength')['actualLength']}} <br/>
+      The required length is : {{RegisterForm.get('last_name')?.getError('maxlength')['requiredLength']}}
+    </p>
+  </section>
+
+
+
+
+
+
+
+    <section class="m-3">
+      <label for="Age" class="text-white">Age : </label>
+    <input formControlName="age" type="number" name="Age" id="Age" class="form-control">
+    </section>
+    <section *ngIf="RegisterForm.get('age')?.errors && RegisterForm.get('age')?.touched" class="alert alert-danger m-3">
+      <p *ngIf="RegisterForm.get('age')?.getError('required')">Age is required</p>
+      <p *ngIf="RegisterForm.get('age')?.getError('min')">
+        The minium age is : {{RegisterForm.get('age')?.getError('min')['actual']}} <br/>
+        The maximum age is : {{RegisterForm.get('age')?.getError('min')['min']}}
+      </p>
+      <p *ngIf="RegisterForm.get('age')?.getError('max')">
+        The  minium age is : {{RegisterForm.get('age')?.getError('max')['actual']}} <br/>
+        The maximum age is : {{RegisterForm.get('age')?.getError('max')['max']}}
+      </p>
+    </section>
+
+
+   <section class="m-3">
+    <label for="E-mail" class="text-white">E-mail : </label>
+    <input formControlName="email" type="email" name="E-mail" id="E-mail" class="form-control">
+   </section>
+   <section *ngIf="RegisterForm.get('email')?.errors && RegisterForm.get('email')?.touched" class="alert alert-danger m-3">
+    <p *ngIf="RegisterForm.get('email')?.getError('required')">E-mail is required</p>
+    <p *ngIf="RegisterForm.get('email')?.getError('email')">E-mail is incorrect</p>
+  </section>
+
+
+
+
+    <section class="m-3">
+      <label for="Password" class="text-white">Password : </label>
+    <input formControlName="password" type="password" name="Password" id="Password" class="form-control">
+    </section>
+    <section *ngIf="RegisterForm.get('password')?.errors && RegisterForm.get('password')?.touched" class="alert alert-danger m-3">
+      <p *ngIf="RegisterForm.get('password')?.getError('required')">password is required</p>
+      <p *ngIf="RegisterForm.get('password')?.getError('minlength')">
+        The actual length is : {{RegisterForm.get('password')?.getError('minlength')['actualLength']}} <br/>
+        The required length is : {{RegisterForm.get('password')?.getError('minlength')['requiredLength']}}
+      </p>
+      <p *ngIf="RegisterForm.get('password')?.getError('maxlength')">
+        The actual length is : {{RegisterForm.get('password')?.getError('maxlength')['actualLength']}} <br/>
+        The required length is : {{RegisterForm.get('password')?.getError('maxlength')['requiredLength']}}
+      </p>
+    </section>
+
+
+
+
+    <section class="m-3">
+      <button type="submit" class="btn btn-outline-dark rounded-5" [disabled]="RegisterForm.invalid">
+        <span *ngIf="!Loading" class="me-1">Sumbit</span>
+        <i *ngIf="Loading" class="fas fa-spinner fa-spin"></i>
+      </button>
+    </section>
+  </form>
+</section>

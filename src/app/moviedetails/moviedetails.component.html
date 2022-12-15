@@ -1,0 +1,32 @@
+<section class="row mb-5">
+    <section class="col-md-3">
+        <img *ngIf="item.poster_path" [src]="'https://image.tmdb.org/t/p/w500/'+item.poster_path" alt="movie" class="w-100 rounded-5">
+        <img *ngIf="item.profile_path" [src]="'https://image.tmdb.org/t/p/w500/'+item.profile_path" alt="movie" class="w-100 rounded-5">
+    </section>
+    <section class="col-md-9 d-flex align-items-center">
+        <section>
+            <h2>{{item.title}} {{item.name}}</h2>
+        <p *ngIf="item.overview" class="mt-5 mb-5 text-muted">{{item.overview}}</p>
+        <p *ngIf="item.biography" class="mt-5 mb-5 text-muted">{{item.biography}}</p>
+
+        <h5 *ngIf="item.known_for_department">Department : {{item.known_for_department}}</h5>
+        <h5 *ngIf="item.vote_count">Vote Count : {{item.vote_count}}</h5>
+        <h5 *ngIf="item.vote_average">Vote Average : {{item.vote_average}}</h5>
+        <h5 *ngIf="item.popularity">popularity : {{item.popularity.toFixed(1)}}</h5>
+        </section>
+    </section>
+</section>
+
+<section class="row">
+    <section *ngFor="let item of similarmovies" class="col-md-2">
+            <!-- <app-movieitem (click) = "getsimilar(mediatype,item.id)" [item]="item"></app-movieitem> -->
+            <section (click) = "getsimilar(mediatype,item.id)" class="item position-relative mb-5">
+                <!-- <a [routerLink]="['/moviedetails', item.id, item.media_type]"> -->
+                    <img *ngIf="item.poster_path" [src]="'https://image.tmdb.org/t/p/w500/'+item.poster_path" alt="movie" class="w-100 rounded-5">
+                    <img *ngIf="item.profile_path" [src]="'https://image.tmdb.org/t/p/w500/'+item.profile_path" alt="movie" class="w-100 rounded-5">
+                    <h3 class="h6 my-2 text-center">{{item.title}} {{item.name}}</h3>
+                    <section *ngIf="item.vote_average" class="bg-info position-absolute top-0 end-0 text-white p-1">{{item.vote_average.toFixed(1)}}</section>
+                <!-- </a> -->
+            </section>
+    </section>
+</section>

@@ -1,1 +1,24 @@
 /* You can add global styles to this file, and also import other style files */
+
+body
+{
+  font-family: "Oswald";
+  background-color: beige;
+}
+a
+{
+  text-decoration: none;
+}
+li
+{
+  list-style-type: none;
+}
+.btn
+{
+  background-color: white;
+  transition: .5s ease;
+}
+.bdr
+{
+  height: 1px;
+}

@@ -1,0 +1,49 @@
+<!-- <section *ngFor="let item of trendingmovies" class="col-md-2">
+        <section class="item position-relative mb-5">
+            <img [src]="'https://image.tmdb.org/t/p/w500/'+item.poster_path" alt="movie" class="w-100 rounded-5">
+            <h3 class="h6 my-2">{{item.title}}</h3>
+            <section class="bg-info position-absolute top-0 end-0 text-white p-1">{{item.vote_average.toFixed(1)}}</section>
+        </section>
+    </section> -->
+
+
+
+
+
+    
+    <input type="text" [(ngModel)]="term" class="form-control w-100 mb-5">
+<section class="row mb-5 pb-5">
+    <section class="col-md-4">
+        <section class="bdr bg-dark w-25 mb-3 rounded-5"></section>
+        <h2 class="h5">Trending <br/> Movies <br/> to watch right now</h2>
+        <p class="text-muted py-2">Most watched movies by the day</p>
+        <section class="bdr bg-dark w-100 mb-3 rounded-5"></section>
+    </section>
+    <section *ngFor="let item of trendingmovies|search:term" class="col-md-2">
+        <app-movieitem  [item]="item"></app-movieitem>
+    </section>
+</section>
+
+<section class="row mb-5 pb-5">
+    <section class="col-md-4">
+        <section class="bdr bg-dark w-25 mb-3 rounded-5"></section>
+        <h2 class="h5">Trending <br/> Movies <br/> to watch right now</h2>
+        <p class="text-muted py-2">Most watched movies by the day</p>
+        <section class="bdr bg-dark w-100 mb-3 rounded-5"></section>
+    </section>
+    <section *ngFor="let item of trendingtv" class="col-md-2">
+        <app-movieitem  [item]="item"></app-movieitem>
+    </section>
+</section>
+
+<section class="row mb-5 pb-5">
+    <section class="col-md-4">
+        <section class="bdr bg-dark w-25 mb-3 rounded-5"></section>
+        <h2 class="h5">Trending <br/> Movies <br/> to watch right now</h2>
+        <p class="text-muted py-2">Most watched movies by the day</p>
+        <section class="bdr bg-dark w-100 mb-3 rounded-5"></section>
+    </section>
+    <section *ngFor="let item of trendingpeople" class="col-md-2">
+        <app-movieitem  [item]="item"></app-movieitem>
+    </section>
+</section>
